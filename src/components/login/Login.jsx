@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BaseInput from '../form/BaseInput';
 import Form from '../form/Form';
+import Button from '../form/Button';
 import Container from '../Container';
 import './scss/Login.scss';
 
@@ -32,7 +33,7 @@ function Login() {
           type="password"
           value={password}
         />
-        <button className="button is-dark" type="submit">Login</button>
+        <Button text="Login" />
       </Form>
     </Container>
   );
