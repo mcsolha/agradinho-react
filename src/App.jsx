@@ -1,9 +1,12 @@
 import React from 'react';
-import './App.css';
+import Login from './components/login/Login';
+import './App.scss';
 
 function App() {
   return (
-    <div className="App" />
+    <div className="App">
+      <Login />
+    </div>
   );
 }
 
