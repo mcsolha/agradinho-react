@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './scss/BaseInput.scss';
 
 function BaseInput({
   label, type, onChange, value,
@@ -7,14 +8,17 @@ function BaseInput({
   const inputName = label.toLowerCase();
 
   return (
-    <div className="base-input">
-      <label htmlFor={inputName}>{label}</label>
-      <input
-        type={type}
-        name={inputName}
-        onChange={onChange}
-        value={value}
-      />
+    <div className="field base-input">
+      <div className="control">
+        <label className="label" htmlFor={inputName}>{label}</label>
+        <input
+          className="input is-dark"
+          type={type}
+          name={inputName}
+          onChange={onChange}
+          value={value}
+        />
+      </div>
     </div>
   );
 }
