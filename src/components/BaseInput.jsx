@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './scss/BaseInput.scss';
+import '../style/BaseInput.scss';
 
 function BaseInput({
   label, type, onChange, value,

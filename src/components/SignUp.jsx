@@ -1,7 +1,7 @@
 import React from 'react';
-import BaseInput from '../form/BaseInput';
-import Button from '../form/Button';
-import Container from '../Container';
+import BaseInput from './BaseInput';
+import Button from './Button';
+import Container from './Container';
 
 function SignUp() {
   return (

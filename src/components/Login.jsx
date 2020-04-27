@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import BaseInput from '../form/BaseInput';
-import Form from '../form/Form';
-import Button from '../form/Button';
-import Container from '../Container';
-import './scss/Login.scss';
+import BaseInput from './BaseInput';
+import Form from './Form';
+import Button from './Button';
+import Container from './Container';
+import '../style/Login.scss';
 
 function Login() {
   const [email, setEmail] = useState('');
