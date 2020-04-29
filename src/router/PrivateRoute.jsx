@@ -1,54 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Route,
-  BrowserRouter as Router,
-  Switch,
-  Link,
   Redirect,
-  useHistory,
-  useLocation,
 } from 'react-router-dom';
+import storage from '../store/storage';
 
-function AuthExample() {
+function PrivateRoute({ children, path, exact }) {
   return (
-    <Router>
-      <div>
-        Blabla
-      </div>
-      <ul>
-        <li>
-          <Link to="/test">Test</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-
-        <Switch>
-          <Route path="/test">
-            <div>
-              This is the test!
-            </div>
-          </Route>
-          <Route path="/about">
-            <div>
-              About this app!
-            </div>
-          </Route>
-          <Route path="*">
-            <div>
-              404 not found!
-            </div>
-          </Route>
-        </Switch>
-      </ul>
-    </Router>
+    <Route path={path} exact={exact}>
+      {
+        !storage.isAuthenticated
+          ? (<Redirect to="/signup" />)
+          : (children)
+      }
+    </Route>
   );
 }
 
-function PrivateRoute() {
-  return (
-    
-  );
-}
+PrivateRoute.propTypes = {
+  path: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]).isRequired,
+  exact: PropTypes.bool,
+};
+
+PrivateRoute.defaultProps = {
+  exact: false,
+};
 
 export default PrivateRoute;

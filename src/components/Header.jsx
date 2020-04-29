@@ -6,6 +6,9 @@ function Header() {
   return (
     <ul>
       <li>
+        <Link to={paths.HOME}>Home</Link>
+      </li>
+      <li>
         <Link to={paths.LOGIN}>Login</Link>
       </li>
       <li>
