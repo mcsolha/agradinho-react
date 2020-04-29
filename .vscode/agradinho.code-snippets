@@ -20,12 +20,5 @@
     "prefix": "cimp",
     "body": "import ${1:ComponentName} from '${2:Path}/${1:ComponentName}';$0",
     "description": "Import component",
-  },
-
-  "Import prop-types": {
-    "scope": "javascriptreact",
-    "prefix": "propimp",
-    "body": "import PropTypes from 'prop-types';$0",
-    "description": "Import prop-types lib"
   }
 }
