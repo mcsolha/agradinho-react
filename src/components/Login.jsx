@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import BaseInput from './BaseInput';
-import Form from './Form';
 import Button from './Button';
-import Container from './Container';
+import { withFirebaseHOC } from '../firebase/index';
 import '../style/Login.scss';
+import LogoForm from './LogoForm';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -13,30 +14,39 @@ function Login() {
   const passwordHandler = (e) => setPassword(e.target.value);
   const performLogin = (e) => {
     e.preventDefault();
-
-    console.log(email);
-    console.log(password);
   };
 
   return (
-    <Container isFluid>
-      <Form onSubmit={performLogin}>
-        <BaseInput
-          onChange={emailHandler}
-          label="Email"
-          type="email"
-          value={email}
-        />
-        <BaseInput
-          onChange={passwordHandler}
-          label="Password"
-          type="password"
-          value={password}
-        />
+    <LogoForm
+      className="login"
+      onFormSubmit={performLogin}
+    >
+      <BaseInput
+        onChange={emailHandler}
+        label="Email"
+        type="email"
+        value={email}
+        placeholder="Email"
+        leftIcons={['envelope']}
+      />
+      <BaseInput
+        onChange={passwordHandler}
+        label="Password"
+        type="password"
+        value={password}
+        placeholder="Password"
+        leftIcons={['lock']}
+      />
+      <div className="field half-margin">
         <Button text="Login" />
-      </Form>
-    </Container>
+      </div>
+      <span className="login__signup-text">
+        Ainda não possui uma conta? Registre-se
+        {' '}
+        <Link to="/signup">aqui!</Link>
+      </span>
+    </LogoForm>
   );
 }
 
-export default Login;
+export default withFirebaseHOC(Login);

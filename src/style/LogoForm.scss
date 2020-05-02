@@ -1,0 +1,53 @@
+@import '~bulma/sass/utilities/all.sass';
+
+$on-form-size: 100px;
+
+.logo-form {
+  background-color: var(--card-color);
+  padding: 10px;
+  border-radius: 4px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  .logo {
+    position: relative;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: var(--card-color);
+    width: $on-form-size;
+    height: $on-form-size;
+    transform: translateY(-50%);
+    border: 3px solid;
+    border-color: var(--bg);
+
+    + .form {
+      margin-top: -($on-form-size/2) + 32px;
+    }
+  }
+
+  .form {
+    .field{
+      &:not(:last-child) {
+        margin-bottom: 32px;
+      }
+
+      &.half-margin {
+        margin-bottom: 16px;
+      }
+    }
+
+    button {
+      background-color: #fff;
+      padding: 6px 42px;
+      box-sizing: content-box;
+    }
+  }
+}
+
+@include tablet {
+  .logo-form {
+    max-width: $tablet;
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ReactValidChildren } from '../js/propTypes';
 
 function Container({ children, isFluid }) {
   const className = `container ${isFluid ? 'is-fluid' : ''}`;
@@ -11,7 +12,7 @@ function Container({ children, isFluid }) {
 }
 
 Container.propTypes = {
-  children: PropTypes.node,
+  children: ReactValidChildren,
   isFluid: PropTypes.bool,
 };
 

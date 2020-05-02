@@ -23,6 +23,8 @@ module.exports = {
     'react',
   ],
   rules: {
-    "jsx-a11y/label-has-associated-control": ["off"]
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "react/button-has-type": "off",
   },
 };

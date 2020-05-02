@@ -5,6 +5,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import storage from '../store/storage';
+import { ReactValidChildren } from '../js/propTypes';
 
 function PrivateRoute({ children, path, exact }) {
   return (
@@ -20,7 +21,7 @@ function PrivateRoute({ children, path, exact }) {
 
 PrivateRoute.propTypes = {
   path: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]).isRequired,
+  children: ReactValidChildren.isRequired,
   exact: PropTypes.bool,
 };
 

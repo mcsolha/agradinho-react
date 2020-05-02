@@ -20,5 +20,5 @@
     "prefix": "cimp",
     "body": "import ${1:ComponentName} from '${2:Path}/${1:ComponentName}';$0",
     "description": "Import component",
-  }
+  },
 }

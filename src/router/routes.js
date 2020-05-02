@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
-import React from 'react';
 import Login from '../components/Login';
 import SignUp from '../components/SignUp';
 import Home from '../components/Home';
@@ -13,7 +11,7 @@ export const paths = {
 const routes = [
   {
     path: paths.HOME,
-    component: () => (<Home />),
+    component: Home,
     exact: true,
     meta: {
       authRequired: true,
@@ -21,11 +19,11 @@ const routes = [
   },
   {
     path: paths.LOGIN,
-    component: () => (<Login />),
+    component: Login,
   },
   {
     path: paths.SIGNUP,
-    component: () => (<SignUp />),
+    component: SignUp,
   },
 ];
 
