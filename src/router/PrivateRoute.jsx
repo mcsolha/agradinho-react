@@ -4,16 +4,31 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
-import storage from '../store/storage';
+import { useStore } from 'react-redux';
 import { ReactValidChildren } from '../js/propTypes';
 
-function PrivateRoute({ children, path, exact }) {
+function PrivateRoute({
+  children, path, exact,
+}) {
+  const store = useStore();
+  const { user } = store.getState();
+
   return (
     <Route path={path} exact={exact}>
       {
-        !storage.isAuthenticated
-          ? (<Redirect to="/signup" />)
-          : (children)
+        user && user.emailVerified
+          ? (children)
+          : (
+            <Redirect
+              push={false}
+              to={{
+                pathname: '/login',
+                state: {
+                  hasToVerifyEmail: user && !user.emailVerified,
+                },
+              }}
+            />
+          )
       }
     </Route>
   );

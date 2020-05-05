@@ -33,8 +33,6 @@ function SignUp({ firebase }) {
       await firebase.signupWithEmail(email, password, displayName);
 
       setRegistered(true);
-
-      toast('Verifique seu email!');
     } catch (err) {
       toast('Algo deu errado: ', err.message);
       setDisabled(false);
@@ -54,6 +52,7 @@ function SignUp({ firebase }) {
         placeholder="Your Name"
         disabled={disabled}
         leftIcons={['id-card']}
+        required
       />
       <BaseInput
         label="email"
@@ -63,6 +62,7 @@ function SignUp({ firebase }) {
         placeholder="Email"
         disabled={disabled}
         leftIcons={['envelope']}
+        required
       />
       <BaseInput
         label="password"
@@ -72,6 +72,7 @@ function SignUp({ firebase }) {
         placeholder="Password"
         disabled={disabled}
         leftIcons={['lock']}
+        required
       />
       <div className="field half-margin">
         <Button
@@ -92,7 +93,15 @@ function SignUp({ firebase }) {
   );
 
   const redirectJSX = (
-    <Redirect to="/login" />
+    <Redirect
+      to={{
+        pathname: '/login',
+        state: {
+          email: formData.email,
+          hasToVerifyEmail: true,
+        },
+      }}
+    />
   );
 
   return registered

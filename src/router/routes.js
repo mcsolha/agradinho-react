@@ -1,12 +1,7 @@
 import Login from '../components/Login';
 import SignUp from '../components/SignUp';
 import Home from '../components/Home';
-
-export const paths = {
-  HOME: '/',
-  LOGIN: '/login',
-  SIGNUP: '/signup',
-};
+import paths from './paths';
 
 const routes = [
   {

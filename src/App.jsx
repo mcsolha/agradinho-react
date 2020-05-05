@@ -10,6 +10,7 @@ import AgrRoute from './router/AgrRoute';
 import { withFirebaseHOC, FirebaseShape } from './firebase';
 import './App.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import Splash from './components/Splash';
 
 function App({ firebase }) {
   const routeComponents = routes.map(({
@@ -25,19 +26,17 @@ function App({ firebase }) {
     </AgrRoute>
   ));
 
-  firebase.checkUserAuth((user) => {
-    console.log(user && user.emailVerified);
-  });
-
   return (
     <div className="agradinho">
-      {/* <Header /> */}
-      <main>
-        <Switch>
-          {routeComponents}
-        </Switch>
-      </main>
-      <ToastContainer />
+      <Splash>
+        {/* <Header /> */}
+        <main>
+          <Switch>
+            {routeComponents}
+          </Switch>
+        </main>
+        <ToastContainer />
+      </Splash>
     </div>
   );
 }

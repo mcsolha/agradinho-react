@@ -6,7 +6,7 @@ import Icon from './Icon';
 import '../style/BaseInput.scss';
 
 function BaseInput({
-  label, type, onChange, value, placeholder, disabled, showLabel, leftIcons, rightIcons,
+  label, type, onChange, value, placeholder, disabled, showLabel, leftIcons, rightIcons, required,
 }) {
   const inputName = camelize(label);
   const labelEl = showLabel && (<label className="label" htmlFor={inputName}>{label}</label>);
@@ -31,8 +31,11 @@ function BaseInput({
       />
     ));
 
-  const controlClass = (rightIconsEls ? 'has-icons-right' : '')
-    + (leftIconsEls ? 'has-icons-left' : '');
+  const controlClass = [
+    (rightIconsEls ? 'has-icons-right' : ''),
+    (leftIconsEls ? 'has-icons-left' : ''),
+    required ? 'is-danger' : '',
+  ].join(' ');
 
   return (
     <div className="field base-input">
@@ -46,6 +49,7 @@ function BaseInput({
           value={value}
           placeholder={placeholder}
           disabled={disabled}
+          required={required}
         />
         { leftIconsEls }
         { rightIconsEls }
@@ -64,6 +68,7 @@ BaseInput.propTypes = {
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   showLabel: PropTypes.bool,
+  required: PropTypes.bool,
   leftIcons: PropTypes.arrayOf(PropTypes.string),
   rightIcons: PropTypes.arrayOf(PropTypes.string),
 };
@@ -74,6 +79,7 @@ BaseInput.defaultProps = {
   placeholder: '',
   disabled: false,
   showLabel: false,
+  required: false,
   leftIcons: [],
   rightIcons: [],
 };

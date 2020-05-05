@@ -1,9 +1,20 @@
-.login {
-  &__signup-text {
-    color: #000;
-
-    a {
-      color: #fff;
+.logo-form {
+  .form {
+    .login {
+      &__signup-text {
+        color: #000;
+    
+        a {
+          color: #d3d3d3;
+        }
+      }
+    }
+    
+    button.login__verify-link {
+      all: unset;
+      background-color: transparent;
+      color: #d3d3d3;
+      cursor: pointer;
     }
   }
 }

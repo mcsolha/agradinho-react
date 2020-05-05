@@ -1,6 +1,11 @@
 import PropTypes from 'prop-types';
 
-export const ReactValidChildren = PropTypes.oneOfType([PropTypes.func, PropTypes.node]);
+export const ReactValidChildren = PropTypes.oneOfType([
+  PropTypes.func,
+  PropTypes.element,
+  PropTypes.elementType,
+  PropTypes.node,
+]);
 
 export const BulmaColorTypes = PropTypes.oneOf([
   'is-primary',

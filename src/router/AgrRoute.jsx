@@ -18,6 +18,7 @@ function AgrRoute({
 
 AgrRoute.propTypes = {
   path: PropTypes.string.isRequired,
+  // children: ReactValidChildren.isRequired,
   children: ReactValidChildren.isRequired,
   meta: PropTypes.shape({
     authRequired: PropTypes.bool,

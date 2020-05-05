@@ -1,8 +1,9 @@
-// @flow
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import config from './config';
+import store from '../store';
+import { setUser } from '../store/actions';
 
 // Initialize Firebase
 const app = firebase.initializeApp(config);
@@ -36,5 +37,9 @@ export function FirebaseShape() {
 }
 
 const Firebase = new FirebaseShape();
+
+Firebase.checkUserAuth((user) => {
+  store.dispatch(setUser(user));
+});
 
 export default Firebase;

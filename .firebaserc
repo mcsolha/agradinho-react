@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "agradinho-bbbd9"
+  },
+  "targets": {
+    "agradinho-bbbd9": {
+      "hosting": {
+        "agradinho": [
+          "agradinho"
+        ]
+      }
+    }
   }
 }
